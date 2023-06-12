@@ -19,6 +19,7 @@ export class ApiService {
       this.flights = response
       console.log(this.flights)
       this.flights.forEach(element => {
+       
         console.log(element.departureStation, element.arrivalStation)
       });
     })

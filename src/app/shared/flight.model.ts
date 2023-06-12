@@ -1,8 +1,8 @@
-import { Transport } from "./transport.model";
-
 export interface Flight{  
-    transport:Transport
+    //transport:Transport
     departureStation:string
     arrivalStation:string
     price:number
+    flightCarrier: string
+    flightNumber: string
 }

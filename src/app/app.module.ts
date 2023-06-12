@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewModule } from './modules/view/view/view.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CurrencyConversionPipe } from './shared/pipes/currency-conversion.pipe';
 
 
 
 @NgModule({
     declarations: [
         AppComponent,
+
     ],
-    providers: [],
+    providers: [CurrencyConversionPipe],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
