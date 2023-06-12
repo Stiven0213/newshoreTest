@@ -1,0 +1,122 @@
+<body>
+  <nav class="nav justify-content-end bg-dark fixed-top">
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Cambiar divisa
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li>
+          <a class="dropdown-item" (click)="exchangeRate('USD')">USD</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="exchangeRate('COP')">COP</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="exchangeRate('EUR')">EUR</a>
+        </li>
+      </ul>
+    </li>
+  </nav>
+  <div class="container pt-4">
+    <div class="bg"></div>
+
+    <div class="search">
+      <h1 class="h1-search">Buscar vuelo</h1>
+      <form class="form rounded">
+        <div class="search-form">
+          <div class="row align-items-center">
+            <div class="col">
+              <div class="form-floating">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="inputOrigin"
+                  placeholder="Origen"
+                  [(ngModel)]="inputOrigin"
+                  maxlength="3"
+                  pattern="[A-Z]{0,3}"
+                  (input)="onInputChange()"
+                />
+                <label for="floatingInput">Origen</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="destination"
+                  placeholder="Destino"
+                  [(ngModel)]="destination"
+                  maxlength="3"
+                  pattern="[A-Z]{0,3}"
+                  (input)="onInputChange()"
+                />
+                <label for="floatingInput">Destino</label>
+              </div>
+            </div>
+            <div class="col">
+              <button (click)="searchJourney()" class="rounded">Buscar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="result-search">
+      <div class="result rounded">
+        <h3 class="h1-search">Resultado de busqueda</h3>
+        <div class="search-form">
+          <div
+            class="row align-items-center"
+            *ngFor="let journey of info; let i = index"
+          >
+            <div class="col">
+              <label class="pb-3"
+                ><b>Opción {{ i + 1 }}</b> - ({{
+                  journey.flights.length - 1
+                }}
+                Escalas) - Precio total:
+                {{
+                  journey.price
+                    | currencyConversion : exchangeApi.capturedExchange
+                }}</label
+              >
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Origen</th>
+                  <th scope="col">Destino</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Aerolínea</th>
+                  <th scope="col">Número de vuelo</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let vuelo of journey.flights">
+                <tr>
+                  <td>{{ vuelo.departureStation }}</td>
+                  <td>{{ vuelo.arrivalStation }}</td>
+                  <td>
+                    {{
+                      vuelo.price
+                        | currencyConversion : exchangeApi.capturedExchange
+                    }}
+                  </td>
+                  <td>{{ vuelo.flightCarrier }}</td>
+                  <td>{{ vuelo.flightNumber }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

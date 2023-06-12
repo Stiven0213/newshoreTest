@@ -1,0 +1,114 @@
+/*generals*/
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #1a73e8;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #1a73e8;
+  opacity: 0.8 !important;
+}
+
+a:focus {
+  color: #1a73e8;
+}
+
+.bg {
+  background-image: url("https://www.gstatic.com/travel-frontend/animation/hero/flights_3.svg");
+  position: relative;
+  height: 350px;
+  background-repeat: no-repeat;
+}
+
+/*badge navbar*/
+.dropdown-menu-dark {
+  --bs-dropdown-bg: white;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #1a73e8;
+}
+
+.dropdown {
+  right: 150px;
+}
+
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/*search form*/
+.search {
+  width: 90%;
+  padding: 0 0 0;
+  margin: auto;
+}
+
+.result-search {
+  width: 860px;
+  margin: auto;
+}
+
+.h1-search {
+  font-family: "Roboto", sans-serif;
+  color: #333333;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  margin: 0 auto 100px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #1a73e8;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form button:hover,
+.form button:active,
+.form button:focus {
+  opacity: 0.8;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+/*result*/
+
+.result {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 860px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+
