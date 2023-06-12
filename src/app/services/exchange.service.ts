@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CurrencyResponse } from '../shared/currencyResponse.model';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExchangeService {
-
-  capturedExchange : number = 1
+  multiplicationFactor: number = 1;
 
   private URL = 'https://xecdapi.xe.com/v1/convert_from?from=USD&amount=1';
-
 
   constructor(private http: HttpClient) {}
 
@@ -25,12 +24,19 @@ export class ExchangeService {
 
     this.http
       .get<CurrencyResponse>(this.URL + '&to=' + currency, { headers })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          // Lógica para manejar el error de la respuesta
+          console.error('Error en la llamada a API:', error.message);
+          return throwError(() => 'Error en la llamada a API');
+        })
+      )
       .subscribe((response) => {
-        this.capturedExchange = response.to[0].mid
+        this.multiplicationFactor = response.to[0].mid;
         console.log(response.to[0].mid);
       });
 
-
+    // Si falla la API usar estos datos
     /*  if(currency == 'COP'){
         this.capturedExchange = 4200
       }

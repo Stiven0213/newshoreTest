@@ -10,6 +10,8 @@
       >
         Cambiar divisa
       </a>
+      
+      
       <ul class="dropdown-menu dropdown-menu-dark">
         <li>
           <a class="dropdown-item" (click)="exchangeRate('USD')">USD</a>
@@ -22,6 +24,7 @@
         </li>
       </ul>
     </li>
+    <li class="nav-item dropdown"><div href="" class="nav-link">{{selectedCurrency}}</div></li>
   </nav>
   <div class="container pt-4">
     <div class="bg"></div>
@@ -53,7 +56,7 @@
                   class="form-control"
                   name="destination"
                   placeholder="Destino"
-                  [(ngModel)]="destination"
+                  [(ngModel)]="inputDestination"
                   maxlength="3"
                   pattern="[A-Z]{0,3}"
                   (input)="onInputChange()"
@@ -71,11 +74,11 @@
 
     <div class="result-search">
       <div class="result rounded">
-        <h3 class="h1-search">Resultado de busqueda</h3>
+        <h3 class="h1-search">Resultado de búsqueda</h3>
         <div class="search-form">
           <div
             class="row align-items-center"
-            *ngFor="let journey of info; let i = index"
+            *ngFor="let journey of journeysList; let i = index"
           >
             <div class="col">
               <label class="pb-3"
@@ -85,7 +88,7 @@
                 Escalas) - Precio total:
                 {{
                   journey.price
-                    | currencyConversion : exchangeApi.capturedExchange
+                    | currencyConversion : exchangeApi.multiplicationFactor
                 }}</label
               >
             </div>
@@ -106,7 +109,7 @@
                   <td>
                     {{
                       vuelo.price
-                        | currencyConversion : exchangeApi.capturedExchange
+                        | currencyConversion : exchangeApi.multiplicationFactor
                     }}
                   </td>
                   <td>{{ vuelo.flightCarrier }}</td>
