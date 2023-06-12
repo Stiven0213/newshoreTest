@@ -1,9 +1,11 @@
 # NewshoreTest
 
 El proyecto fue construído en Angular CLI version 13.3.11.
-Versión de nodeJS usada 12.22.0.
+Instalarlo con `npm install -g @angular/cli@13`
 
-Se recomienda usar estas versiones para evitar cualquier problema de compatibilidad.
+Versión de NodeJS usada 12.22.0.
+
+Se recomienda usar estas versiones de Angular y NodeJs para evitar cualquier problema de compatibilidad.
 
 Para compliar el proyecto, usar `npm install`
 
@@ -14,3 +16,4 @@ Para inicializar el proyecto se usa `ng serve` para ambiente local. Navegar a `h
 
 ## Aclaraciones
 
+Se logró cumplir con todos los requerimientos, solo faltó el requerimiento opcional de (agregar la posibilidad de configurar el número máximo de vuelos que puede tener una ruta).

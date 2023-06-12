@@ -79,6 +79,7 @@ export class ViewComponent implements OnInit {
               list.push(journey);
             }
 
+            // Acá empieza a buscar vuelos con al menos dos escalas
             for (const flight3 of this.api.flights) {
               if (
                 flight3.arrivalStation == this.inputOrigin ||
@@ -98,6 +99,7 @@ export class ViewComponent implements OnInit {
                   list.push(journey);
                 }
 
+                // Acá empieza a buscar vuelos con al menos tres escalas
                 for (const flight4 of this.api.flights) {
                   if (
                     flight4.arrivalStation == this.inputOrigin ||
@@ -118,6 +120,7 @@ export class ViewComponent implements OnInit {
                       list.push(journey);
                     }
 
+                    // Acá empieza a buscar vuelos con al menos cuatro escalas
                     for (const flight5 of this.api.flights) {
                       if (
                         flight5.arrivalStation == this.inputOrigin ||
